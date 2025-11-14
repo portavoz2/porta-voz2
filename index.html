@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Porta-Voz2 — Livraria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Porta-Voz2</h1>
+      <p class="tagline">Livros que Transformam Vidas</p>
+      <nav>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contacto">Contacto</a>
+        <a href="admin.html" class="admin-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <h2>Bem-vindo à Porta-Voz2</h2>
+      <p>Encontre livros cristãos e inspiradores em formato digital e físico.</p>
+      <a class="btn" href="#catalogo">Ver Catálogo</a>
+    </section>
+
+    <section id="catalogo">
+      <h2>Catálogo de Livros</h2>
+      <div class="books" id="books">
+        <!-- Books are injected by script.js -->
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>Porta-Voz2 é uma livraria cristã dedicada a disponibilizar livros transformadores, ensinamentos e recursos para crescimento espiritual.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p><strong>E-mail do administrador:</strong> anilfofilipecomate@gmail.com</p>
+      <p><strong>Telefone / WhatsApp:</strong> 877225947</p>
+
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="name" placeholder="Seu nome" required>
+        <input type="email" id="email" placeholder="Seu e-mail" required>
+        <textarea id="message" placeholder="Mensagem" rows="4" required></textarea>
+        <button type="submit" class="btn">Enviar Mensagem</button>
+      </form>
+      <div id="contactResult" class="muted small"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Porta-Voz2 — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="closeModal">×</button>
+      <h3>Finalizar Compra</h3>
+      <div id="orderSummary"></div>
+      <h4>Opções de Pagamento</h4>
+      <div class="payments">
+        <button class="pay-btn" data-method="googlepay">Pagar com Google Pay</button>
+        <button class="pay-btn" data-method="paypal">Pagar com PayPal</button>
+        <button class="pay-btn" data-method="visa">Pagar com Visa</button>
+      </div>
+      <p class="muted small">Observação: Este site é um modelo estático. Para integrar pagamentos reais, conecte as APIs do Google Pay, PayPal ou um gateway de cartões (ex: Stripe) e configure as credenciais no servidor.</p>
+      <div id="paymentResult"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
