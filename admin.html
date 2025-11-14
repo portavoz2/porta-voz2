@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Porta-Voz2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Área Administrativa — Porta-Voz2</h2>
+    <p>Protegido por verificação simples (modelo estático).</p>
+
+    <div id="loginDiv">
+      <p>Faça login com o e-mail do administrador:</p>
+      <input id="adminEmail" placeholder="E-mail de administrador" />
+      <button id="doLogin" class="btn">Entrar</button>
+      <div id="loginMsg" class="muted small"></div>
+    </div>
+
+    <div id="panel" style="display:none">
+      <h3>Painel do Administrador</h3>
+      <p><strong>E-mail do administrador:</strong> anilfofilipecomate@gmail.com</p>
+      <h4>Livros Cadastrados</h4>
+      <div id="adminBooks"></div>
+      <h4>Adicionar Livro (simulado)</h4>
+      <input id="newTitle" placeholder="Título" />
+      <input id="newPrice" placeholder="Preço (MT)" />
+      <input id="newImg" placeholder="URL imagem" />
+      <button id="addBook" class="btn">Adicionar</button>
+      <div id="adminMsg" class="muted small"></div>
+    </div>
+
+    <p><a href="index.html" class="btn">Voltar ao site</a></p>
+  </div>
+
+  <script>
+    const ADMIN = "anilfofilipecomate@gmail.com";
+    document.getElementById('doLogin').onclick = function(){
+      const v = document.getElementById('adminEmail').value.trim();
+      if(v.toLowerCase() === ADMIN){
+        document.getElementById('loginDiv').style.display='none';
+        document.getElementById('panel').style.display='block';
+        loadAdminBooks();
+      } else {
+        document.getElementById('loginMsg').innerText = 'E-mail inválido.';
+      }
+    };
+
+    function loadAdminBooks(){
+      // for demo, fetch books from parent script via window.opener is not available in static.
+      // we'll load a small sample:
+      const sample = [
+        {title:"Amor de Deus: Paz Interior — 5 Pontos Relevantes", price:350},
+        {title:"Como se Livrar da Maldição da Pobreza", price:420},
+        {title:"Libertação Espiritual: Como Vencer as Correntes Invisíveis", price:500}
+      ];
+      const container = document.getElementById('adminBooks');
+      container.innerHTML = '';
+      sample.forEach(b=>{
+        const d = document.createElement('div');
+        d.innerHTML = '<strong>'+b.title+'</strong> — ' + b.price + ' MT';
+        container.appendChild(d);
+      });
+    }
+
+    document.getElementById('addBook').onclick = function(){
+      const t = document.getElementById('newTitle').value.trim();
+      const p = document.getElementById('newPrice').value.trim();
+      if(!t || !p){ document.getElementById('adminMsg').innerText = 'Preencha título e preço.'; return; }
+      document.getElementById('adminMsg').innerText = 'Livro adicionado (simulado): ' + t + ' — ' + p + ' MT';
+      document.getElementById('newTitle').value='';document.getElementById('newPrice').value='';document.getElementById('newImg').value='';
+      loadAdminBooks();
+    };
+  </script>
+</body>
+</html>
