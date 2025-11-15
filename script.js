@@ -1,6 +1,6 @@
 // script.js - Porta-Voz2 (static demo)
 const ADMIN_EMAIL = "anilfofilipecomate@gmail.com";
-const CONTACT_PHONE = "877225947";
+const CONTACT_PHONE = "258877225947";
 
 const books = [
   {id:1, title:"Amor de Deus: Paz Interior — 5 Pontos Relevantes", price:350, desc:"Livro que ajuda a encontrar paz interior através do amor de Deus.", img:"https://picsum.photos/seed/amor/400/300"},
@@ -62,7 +62,7 @@ function closeModal(){ modal.setAttribute('aria-hidden','true'); }
 function simulatePayment(method, book){
   paymentResult.innerHTML = '<p class="muted small">Processando ' + method + '...</p>';
   setTimeout(()=>{
-    paymentResult.innerHTML = '<p><strong>Pagamento simulado com '+ method + ' realizado!</strong></p><p>Resumo: ' + book.title + ' — ' + formatMT(book.price) + '</p><p>Envie o comprovante para ' + ADMIN_EMAIL + ' ou contacte ' + CONTACT_PHONE + '.</p>';
+    paymentResult.innerHTML = '<p><strong>Pagamento via E-mola com '+ method + ' usa o numero abaixo!</strong></p><p>Resumo: ' + book.title + ' — ' + formatMT(book.price) + '</p><p>Envie o comprovante para ' + ADMIN_EMAIL + ' ou contacte ' + CONTACT_PHONE + '.</p>';
     // In a real site: call backend to create order, verify payment, send email, etc.
   }, 900);
 }
